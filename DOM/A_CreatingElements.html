@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Creating and Updating the Elements</title>
+</head>
+<body style="background-color: rgb(8, 239, 5);">
+    <div class="week" style="background-color: rgb(140, 227, 243);">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+        <div class="day">Sunday</div>
+    </div>  
+    <ul class="Languages" style="background-color: rgb(192, 253, 112)">
+        <li class="lan">Java</li>
+        <li class="lan">Python</li>
+        <li class="lan">JavaScript</li>
+        <li class="lan">Rubby</li>
+    </ul>
+</body>
+<script>
+    //Creating new Element
+    const day=document.createElement('div')
+    day.style.color='red'
+    day.appendChild(document.createTextNode('Holiday'));
+    document.querySelector('.week').appendChild(day);
+
+    const days=document.createElement('div');
+    days.appendChild(document.createTextNode('Noday'))
+    document.querySelector('.week').appendChild(days)
+    
+    //Creating new Element using Function
+    function addlist(newlang){
+        const addLan=document.createElement('li');
+        addLan.appendChild(document.createTextNode(newlang));
+        document.querySelector('.Languages').appendChild(addLan);
+        addLan.style.alignContent;
+        addLan.style.color="brown"
+    }
+    addlist("Go");
+    addlist("Rust")
+    addlist("Cotlin")
+
+    //editing element
+    const day1=document.querySelector('div:nth-child(2)');
+    const newDay=document.createElement('div');
+    newDay.style.color="grey"
+    newDay.textContent="Funday";
+    day1.replaceWith(newDay)
+
+    //removing element
+    const noday=document.querySelector('div:last-child')
+    noday.remove()
+
+</script>
+</html>
