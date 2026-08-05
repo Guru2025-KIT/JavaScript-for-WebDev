@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJSX XMLHttpRequest ready State</title>
+</head>
+<body bgcolor="grey">
+    <!-- Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+    
+    <h1>AJSX XMLHttpRequest ready State</h1>
+    
+    <h2>Asynchonization JavaScript Language</h2>
+    <button id="getPhotoURl">Get Photo</button>
+    <button id="url">Get URL</button>
+</body>
+    <script>
+
+        let data;
+        const url="https://api.github.com/users/Guru2025-KIT";
+        const xmr=new XMLHttpRequest();
+        xmr.open('GET',url);
+        console.log(xmr.readyState)
+        
+
+        xmr.onreadystatechange=function(){
+            console.log(xmr.readyState)
+            if(xmr.readyState===4){
+                data=this.responseText;
+                console.log(typeof data)
+                data=JSON.parse(xmr.responseText)
+                console.log(typeof data)  
+            }
+        }
+        xmr.send();
+        
+        
+        document.querySelector('#getPhotoURl').addEventListener('click',()=>{
+
+            if(data && data.avatar_url){
+                const img=document.createElement('img');
+                img.src=data.avatar_url;
+                img.alt="Github Profile Photo";
+                img.style.width="200px";
+                img.style.display="block";
+                img.style.marginTop="15px";
+
+                document.body.appendChild(img);
+            }else{
+                console.log("Data is still loading or unavailable.");
+            }
+        })
+
+
+        document.querySelector('#url').addEventListener('click',()=>{
+            if(data && data.url){
+                const link=document.createElement('a');
+                link.href=data.html_url;
+                link.textContent="Click Here to Open Github Progfile"
+                link.target="_blank";       //Open Link in new Tab
+                link.style.width="100px"
+
+                document.body.appendChild(link)
+            }else{
+                console.log("Data is still loading or unavailable.");
+
+            }
+        })
+
+    </script>
+</html>
