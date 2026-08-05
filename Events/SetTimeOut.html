@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Functions That Makes JS Asynchronous</title>
+</head>
+
+<body bgcolor="grey">
+    <h1>Welcome in JavaScript</h1>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, possimus!</p>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+    
+</body>
+
+<script>
+    
+    //SetTimeout() function (Asynchronous JS)
+    const text=document.querySelector('h1');
+    const changeText=function(){
+            text.innerHTML="Hello Guruprasad";
+    }
+
+    const ref_timeOut=setTimeout(changeText,3000);
+
+    //clearTimeout() function --->Clear call Stack
+    document.querySelector('#stop').addEventListener('click',(e)=>{
+        clearTimeout(ref_timeOut);
+        console.log("STOPPED")
+    })
+
+    
+</script>
+</html>
