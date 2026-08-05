@@ -6,6 +6,45 @@
     <title>AJSX XMLHttpRequest ready State</title>
 </head>
 <body bgcolor="grey">
+    
+    <!-- /**
+     * =========================================================================
+     * DOCUMENTATION: CORE LESSONS LEARNED FROM THIS CODE
+     * =========================================================================
+     * 
+     * 1. ASYNCHRONOUS EXECUTIONS & EVENT LOOP:
+     *    - Network requests (like XMLHttpRequest) take time to communicate with servers.
+     *    - JavaScript executes code top-to-bottom synchronously without waiting. 
+     *    - Because of this, conditional logic depending on network data cannot be run 
+     *      globally right after .send(). It must stay inside callbacks (like event 
+     *      listeners or state handlers) that check for variables *at a future time*.
+     * 
+     * 2. XMLHTTPREQUEST (XHR) LIFECYCLE & READYSTATES:
+     *    - `xml.open()` sets up the configuration (Method, Target Endpoint).
+     *    - `xml.send()` actually fires the request off asynchronously.
+     *    - `onreadystatechange` acts as a listener that watches the lifecycle:
+     *         0: UNSENT (Created, open not called)
+     *         1: OPENED (open called)
+     *         2: HEADERS_RECEIVED (send called, headers available)
+     *         3: LOADING (Downloading data payload)
+     *         4: DONE (Request finished completely)
+     *    - Checking `xml.readyState === 4` ensures we only parse data when it is fully ready.
+     * 
+     * 3. DATA PARSING (JSON):
+     *    - API responses arrive as massive strings of pure text (`this.responseText`).
+     *    - `JSON.parse()` is mandatory to convert that raw string into a usable 
+     *      JavaScript Object (`data`), allowing dot notation like `data.avatar_url`.
+     * 
+     * 4. DYNAMIC DOM MANIPULATION & INTERACTIVITY:
+     *    - `document.querySelector()` targets structural components in the view.
+     *    - `addEventListener('click', ...)` binds persistent behavior to UI elements.
+     *    - `document.createElement('img')` dynamically builds HTML nodes entirely in memory.
+     *    - Setting properties on nodes (like `.src`, `.alt`, `.style`) customizes the element.
+     *    - `document.body.appendChild()` pushes the newly generated element live into the active viewport.
+     */ -->
+
+
+
     <!-- Value	State	Description
 0	UNSENT	Client has been created. open() not called yet.
 1	OPENED	open() has been called.
@@ -39,7 +78,7 @@
         }
         xmr.send();
         
-        
+
         document.querySelector('#getPhotoURl').addEventListener('click',()=>{
 
             if(data && data.avatar_url){
