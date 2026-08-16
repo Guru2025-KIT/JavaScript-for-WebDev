@@ -1,9 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import MapValues from "./MapValues";
+import ShowStatus from "./ShowStatus";
+import ShowNotifications from "./ShowNotifications"
+
 function App() {
   return (
     <React.Fragment>
+      <ShowStatus></ShowStatus>
+      <ShowNotifications></ShowNotifications>
       <h1>Healthy Food Items List</h1>
       <ul className="list-group">
         <li className="list-group-item d-flex justify-content-between align-items-center">
