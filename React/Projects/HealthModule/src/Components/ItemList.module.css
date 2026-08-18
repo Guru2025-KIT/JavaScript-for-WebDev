@@ -1,0 +1,16 @@
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Aligns items to the left */
+  
+  /* Your other styles */
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  padding: 10px; 
+  margin: 5px; 
+  background-color: #e5f3e2; 
+  font-weight: 500;
+  font-size: 18px;
+}
+
+
