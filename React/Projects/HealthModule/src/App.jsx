@@ -1,10 +1,14 @@
 import ItemList from "./Components/ItemList";
 import Header from "./Components/Header";
+import FoodItem from "./Components/FoodItem";
 
 function App(){
 
   let Items=['daal','rice','roti','sabzi','chicken','fish','milk',];
-
+  
+  const onChangeEvent=(event)=>{
+    console.log(event.target.value);
+  }
   return (
     <>
       <Header property="Guruji"/>
@@ -12,6 +16,7 @@ function App(){
       <Header >
         <p>Hello I am Your Doctor</p>
       </Header>
+       <FoodItem key="food-item" onChangeEvent={onChangeEvent}/>
       
         {
           Items.map((item)=>{

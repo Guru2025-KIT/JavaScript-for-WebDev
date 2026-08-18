@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 export default function Header(props){
 
   const {children,property} = props;
-  if(props.children){
+  if(children){
     return(
       <div className={styles.head}>
         {props.children}

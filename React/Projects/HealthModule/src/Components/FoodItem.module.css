@@ -1,0 +1,10 @@
+.InputButton{
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  margin: 4px 2px;
+  cursor: pointer;
+}
