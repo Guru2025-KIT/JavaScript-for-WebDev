@@ -2,6 +2,7 @@ import styles from "./Header.module.css";
 
 export default function Header(props){
 
+  const {children,property} = props;
   if(props.children){
     return(
       <div className={styles.head}>
@@ -12,7 +13,7 @@ export default function Header(props){
 
   return(
     <>
-        <div className={styles.head}>Healthy Foods</div>
+        <div className={styles.head}>Healthy Foods from {property}</div>
     </>
   )
 }

@@ -7,9 +7,9 @@ function App(){
 
   return (
     <>
-      <Header/>
+      <Header property="Guruji"/>
 
-      <Header>
+      <Header >
         <p>Hello I am Your Doctor</p>
       </Header>
       
